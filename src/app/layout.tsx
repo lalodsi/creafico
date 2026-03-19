@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Header } from "components/Header";
+import clsx from "clsx";
+import Image from 'next/image'
+import "./globals.css"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +24,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const classNameBody= clsx(
+    geistSans.variable,
+    geistMono.variable,
+    'relative min-h-screen'
+  )
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={classNameBody}
       >
-        
+        <Image
+          src="/BackgroundPlain.png"
+          alt=""
+          fill
+          className="object-fill -z-10"
+          priority
+        />
         {children}
       </body>
     </html>
