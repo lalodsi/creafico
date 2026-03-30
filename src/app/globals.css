@@ -2,11 +2,13 @@
 
 :root {
   --backgroundYellow: #FFC000;
+  --backgroundPurple: #9A6699;
   --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--backgroundYellow);
+  --color-yellow: var(--backgroundYellow);
+  --color-purple: var(--backgroundPurple);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
