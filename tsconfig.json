@@ -23,7 +23,7 @@
       "hooks": ["./src/hooks/*"],
       "providers": ["./src/providers/*"],
       "redux": ["./src/redux/*"],
-      "types": ["./src/types/*"],
+      "types/*": ["./src/types/*"],
     }
   },
   "include": [
