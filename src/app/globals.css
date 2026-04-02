@@ -2,6 +2,8 @@
 
 :root {
   --backgroundYellow: #FFC000;
+  --colorTextInYellow: #0F0F0F;
+  --colorTextInPurple: #eaeaea;
   --backgroundPurple: #9A6699;
   --foreground: #171717;
 }
@@ -9,6 +11,8 @@
 @theme inline {
   --color-yellow: var(--backgroundYellow);
   --color-purple: var(--backgroundPurple);
+  --color-in-yellow-bg: var(--colorTextInYellow);
+  --color-in-purple-bg: var(--colorTextInPurple);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

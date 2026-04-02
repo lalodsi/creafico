@@ -4,7 +4,7 @@ import { SubItem, services } from "types/services";
 
 const SectionRight = (props: SubItem & { i: number }) => {
   const randomNumber = Math.random();
-  const randomColor = randomNumber > 0.5 ? "bg-yellow" : "bg-purple";
+  const randomColor = randomNumber > 0.5 ? "bg-yellow text-in-yellow-bg" : "bg-purple text-in-purple-bg";
 
   return (
     <div key={props.i} className={clsx("p-4 flex gap-4")}>
