@@ -56,7 +56,7 @@ export const services: Service[] = [
       "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
     subItems: [
       {
-        layoutType: "Right",
+        layoutType: "Grid",
         title: "Madera",
         description:
           "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
@@ -67,7 +67,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Grid",
         title: "Metálicos",
         description:
           "Reprehenderit consequat sunt culpa sint aliquip id veniam id. Dolore veniam est proident est elit exercitation. Do irure labore Lorem qui aute nulla cupidatat do eu ipsum elit. Irure in qui incididunt labore reprehenderit minim duis dolore nulla sunt voluptate. Id sint qui nisi cupidatat sit excepteur quis. Eu esse amet sunt ex aute occaecat aliqua quis. Minim esse irure magna amet ut do laborum eiusmod.",

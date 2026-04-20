@@ -263,7 +263,23 @@ export default function ServicesPage() {
                 if (subservice.layoutType === "Left") {
                   return <SectionLeft {...subservice} i={j} />;
                 }
-                return null;
+                if (subservice.layoutType === "Carousel") {
+                  return <SectionCarousel {...subservice} i={j} />;
+                }
+                if (subservice.layoutType === "HoverExpand") {
+                  return <SectionHoverExpand {...subservice} i={j} />;
+                }
+                if (subservice.layoutType === "Masonry") {
+                  return <SectionMasonry {...subservice} i={j} />;
+                }
+                if (subservice.layoutType === "Grid") {
+                  return <SectionGrid {...subservice} i={j} />;
+                }
+                if (subservice.layoutType === "Tabs") {
+                  return <SectionTabs {...subservice} i={j} />;
+                }
+
+               return null;
               })}
             </section>
           );
