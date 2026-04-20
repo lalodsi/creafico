@@ -83,6 +83,75 @@ const SectionCarousel = (props: SubItem & { i: number }) => {
   );
 };
 
+const SectionHoverExpand = (props: SubItem & { i: number }) => {
+  const items = props.images ?? [];
+
+  return (
+    <div className="px-2 md:px-0" key={props.i}>
+      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
+        {props.title}
+      </h3>
+
+      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
+        {props.description}
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {items.map((img, i) => (
+          <div
+            key={i}
+            className="group relative h-[180px] md:h-[220px] overflow-hidden rounded-xl cursor-pointer"
+          >
+            {/* imagen */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              style={{ backgroundImage: `url(${img.url})` }}
+            />
+
+            {/* overlay */}
+            <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/60" />
+
+            {/* contenido */}
+            <div className="absolute bottom-0 p-4 text-white transform transition-all duration-500 group-hover:-translate-y-2">
+              <h4 className="font-bold text-lg">{img.name}</h4>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const SectionMasonry = (props: SubItem & { i: number }) => {
+  const items = props.images ?? [];
+
+  return (
+    <div className="px-2 md:px-0" key={props.i}>
+      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
+        {props.title}
+      </h3>
+
+      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
+        {props.description}
+      </p>
+
+      <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+        {items.map((img, i) => (
+          <div
+            key={i}
+            className="break-inside-avoid rounded-xl overflow-hidden"
+          >
+            <div
+              className="w-full h-[200px] md:h-[250px] bg-cover bg-center hover:scale-105 transition-transform duration-500"
+              style={{ backgroundImage: `url(${img.url})` }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function ServicesPage() {
   return (
     <main className="max-w-6xl mx-auto py-8 md:py-12 px-4 md:px-16 space-y-16 md:space-y-32">
@@ -114,6 +183,12 @@ export default function ServicesPage() {
         }
         if (service.layoutType === "Carousel") {
           return <SectionCarousel {...service} i={i} />;
+        }
+        if (service.layoutType === "HoverExpand") {
+          return <SectionHoverExpand {...service} i={i} />;
+        }
+        if (service.layoutType === "Masonry") {
+          return <SectionMasonry {...service} i={i} />;
         }
 
         return null;
