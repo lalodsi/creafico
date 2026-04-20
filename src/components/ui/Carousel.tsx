@@ -32,10 +32,9 @@ export const Home: React.FC<HomeProps> = ({ data }) => {
         {data.map((card, i) => (
           <CarouselCard key={card.id} active={activeIndex === i}>
             <div
-              className="carousel-card-image relative w-full h-full bg-contain bg-no-repeat bg-center transition-all duration-800 ease-in-out"
-              style={{ backgroundImage: `url("${card.image}")` }}
-            >
-            </div>
+            className="carousel-card-image w-full h-full bg-contain bg-no-repeat bg-center"
+            style={{ backgroundImage: `url("${card.image}")` }}
+            />
           </CarouselCard>
         ))}
       </Carousel>
@@ -69,43 +68,50 @@ export const Carousel: React.FC<CarouselProps> = ({
   children,
 }) => {
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  const [carouselTranslate, setCarouselTranslate] = useState<number>(0);
+  const [translate, setTranslate] = useState(0);
 
   useEffect(() => {
-    if (!carouselRef.current) return;
+  if (!carouselRef.current) return;
 
-    const initialTranslateVal = carouselRef.current.offsetWidth / 4;
-    const diffAmount = initialTranslateVal * 2;
+  const container = carouselRef.current;
+  const firstChild = container.children[0] as HTMLElement;
 
-    const translate =
-      activeIndex === 0
-        ? initialTranslateVal
-        : initialTranslateVal - activeIndex * diffAmount;
+  if (!firstChild) return;
 
-    setCarouselTranslate(translate);
-  }, [activeIndex]);
+  const gap = 16; // gap-4
+  const itemWidth = firstChild.offsetWidth;
+  const containerWidth = container.parentElement?.offsetWidth ?? 0;
+
+  const newTranslate =
+    -(activeIndex * (itemWidth + gap)) +
+    (containerWidth / 2 - itemWidth / 2);
+
+  setTranslate(newTranslate);
+}, [activeIndex]);
 
   const childrenArray = Children.toArray(children);
 
   return (
     <>
-      <div
-        className="flex w-full transition-all duration-[350ms] ease-in-out"
-        ref={carouselRef}
-        style={{ transform: `translateX(${carouselTranslate}px)` }}
-      >
-        {children}
+      <div className="overflow-hidden w-full">
+        <div
+          ref={carouselRef}
+          className="flex gap-4 transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(${translate}px)` }}
+        >
+          {children}
+        </div>
       </div>
 
-      <div className="flex justify-center mt-[40px]">
+      <div className="flex justify-center mt-6">
         {childrenArray.map((_, i) => (
           <button
             key={i}
             onClick={() => setActiveIndex(i)}
             className={clsx(
-              'h-[7px] w-[7px] rounded-full border-none p-0 hover:cursor-pointer',
-              i !== childrenArray.length - 1 && 'mr-[10px]',
-              activeIndex === i ? 'bg-[#c9c9c9]' : 'bg-[#545454]'
+              "h-2 w-2 rounded-full",
+              i !== childrenArray.length - 1 && "mr-2",
+              activeIndex === i ? "bg-zinc-300" : "bg-zinc-600"
             )}
           />
         ))}
@@ -124,14 +130,19 @@ export const CarouselCard: React.FC<CarouselCardProps> = ({
   children,
 }) => {
   return (
-    <div className="min-w-[50%] w-[200px] h-[250px]">
+    <div
+      className={clsx(
+        // 👇 esto es lo importante
+        "flex-shrink-0 basis-[80%] sm:basis-[60%] md:basis-[45%] lg:basis-[35%]",
+        "h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]"
+      )}
+    >
       <div
         className={clsx(
-          'w-full h-full',
-          !active && 'scale-80 blur-[10px] [&_.carousel-card-image]:opacity-30',
-          active
-            && '[&_.carousel-card-image]:opacity-100'
-          )}
+          "w-full h-full transition-all duration-500",
+          !active && "scale-90 blur-[6px] opacity-40",
+          active && "scale-100 opacity-100"
+        )}
       >
         {children}
       </div>
