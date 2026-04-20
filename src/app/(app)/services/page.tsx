@@ -1,4 +1,6 @@
+"use client"
 import clsx from "clsx";
+import { Card, Home as Carousel } from "components/ui/Carousel";
 import Image from "next/image";
 import { SubItem, services } from "types/services";
 
@@ -54,6 +56,24 @@ const SectionLeft = (props: SubItem & { i: number }) => {
   );
 };
 
+const SectionCarousel = (props: SubItem & { i: number }) => {
+
+  const cards : Card[] = props.images?.map((image, i) => ({
+    id: i,
+    title: image.name,
+    image: image.url
+  })) ?? []
+  return (
+    <div className="overflow-hidden" key={props.i}>
+      <div className={clsx( props.images && "w-[100%]")}>
+        <h3 className="text-2xl font-bold mb-4 pl-4">{props.title}</h3>
+        <p className=" text-[16px] pl-4 text-justify">{props.description}</p>
+      </div>
+      <Carousel data={cards} />
+    </div>
+  )
+}
+
 export default function ServicesPage() {
   return (
     <main className="max-w-4xl mx-auto py-12 px-16 space-y-32">
@@ -79,6 +99,9 @@ export default function ServicesPage() {
         }
         if (service.layoutType === "Left") {
           return <SectionLeft {...service} i={i} />;
+        }
+        if (service.layoutType === "Carousel") {
+          return <SectionCarousel {...service} i={i} />;
         }
       })}
     </main>
