@@ -16,7 +16,9 @@ type layoutType=
   | "Carousel"
   | "HoverExpand"
   | "Masonry"
-
+  | "Grid"
+  | "Tabs"
+  
 export interface Service {
   title: string;
   layoutType: layoutType;
@@ -133,7 +135,7 @@ export const services: Service[] = [
     ]
   },
   {
-    layoutType: "Right",
+    layoutType: "Grid",
   title: "Branding rotulacion",
     description:
       "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
@@ -187,7 +189,7 @@ export const services: Service[] = [
     ]
   },
   {
-    layoutType: "Right",
+    layoutType: "Tabs",
     title: "Burreras",
     description:
       "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",

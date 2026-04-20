@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { Card, Home as Carousel } from "components/ui/Carousel";
 import Image from "next/image";
 import { SubItem, services } from "types/services";
+import { useState } from "react";
 
 const SectionRight = (props: SubItem & { i: number }) => {
   const randomNumber = Math.random();
@@ -152,6 +153,99 @@ const SectionMasonry = (props: SubItem & { i: number }) => {
   );
 };
 
+const SectionGrid = (props: SubItem & { i: number }) => {
+  const items = props.images ?? [];
+
+  return (
+    <div className="px-2 md:px-0" key={props.i}>
+      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
+        {props.title}
+      </h3>
+
+      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
+        {props.description}
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {items.map((img, i) => (
+          <div
+            key={i}
+            className="rounded-xl overflow-hidden bg-zinc-900/5 hover:bg-zinc-900/10 transition-colors duration-300"
+          >
+            <div
+              className="w-full h-[180px] md:h-[200px] bg-cover bg-center"
+              style={{ backgroundImage: `url(${img.url})` }}
+            />
+
+            <div className="p-4">
+              <h4 className="font-semibold text-base md:text-lg mb-2">
+                {img.name}
+              </h4>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const SectionTabs = (props: SubItem & { i: number }) => {
+  const items = props.images ?? [];
+  const [active, setActive] = useState(0);
+
+  return (
+    <div className="px-2 md:px-0" key={props.i}>
+      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
+        {props.title}
+      </h3>
+
+      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
+        {props.description}
+      </p>
+
+      {/* tabs */}
+      <div className="flex overflow-x-auto gap-2 mb-6 px-2 md:px-4">
+        {items.map((item, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            className={clsx(
+              "whitespace-nowrap px-4 py-2 rounded-full text-sm transition",
+              active === i
+                ? "bg-black text-white"
+                : "bg-zinc-200 text-zinc-700 hover:bg-zinc-300"
+            )}
+          >
+            {item.name}
+          </button>
+        ))}
+      </div>
+
+      {/* contenido */}
+      {items[active] && (
+        <div className="flex flex-col md:flex-row gap-4 items-center">
+          <div className="w-full md:w-1/2">
+            <div
+              className="w-full h-[220px] md:h-[300px] bg-contain bg-no-repeat bg-center"
+              style={{ backgroundImage: `url(${items[active].url})` }}
+            />
+          </div>
+
+          <div className="w-full md:w-1/2">
+            <h4 className="text-lg md:text-xl font-semibold mb-2">
+              {items[active].name}
+            </h4>
+            <p className="text-sm md:text-base text-zinc-600">
+              {/* puedes extender tu modelo para meter descripción aquí */}
+              Información del servicio seleccionado.
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default function ServicesPage() {
   return (
     <main className="max-w-6xl mx-auto py-8 md:py-12 px-4 md:px-16 space-y-16 md:space-y-32">
@@ -189,6 +283,12 @@ export default function ServicesPage() {
         }
         if (service.layoutType === "Masonry") {
           return <SectionMasonry {...service} i={i} />;
+        }
+        if (service.layoutType === "Grid") {
+          return <SectionGrid {...service} i={i} />;
+        }
+        if (service.layoutType === "Tabs") {
+          return <SectionTabs {...service} i={i} />;
         }
 
         return null;
