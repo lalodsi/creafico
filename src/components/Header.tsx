@@ -1,35 +1,31 @@
-"use client"
+"use client";
 
-import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
-import { TitleBlock } from "./ui/TitleBlock";
 import Image from "next/image";
-
+import { TitleBlock } from "./ui/TitleBlock";
 
 export function Header() {
-  const path = usePathname()
-  console.log(path)
-
   return (
-    <header className="bg-white/80 backdrop-blur border-b border-zinc-200">
-      <div className="max-w-6xl mx-auto px-16 py-4 flex items-center justify-between">
-        <nav className="flex flex-col items-center gap-6 text-sm">
+    <header className="bg-white/80 backdrop-blur border-b border-zinc-200 w-full">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-10 flex flex-col lg:flex-row items-center justify-between gap-10 min-h-[600px]">
+        <nav className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 w-full lg:w-1/2">
           <TitleBlock
             title="Dale un impulso a tu negocio"
             subtitle="Con nuestras soluciones de publicidad que se ajustan a tu estilo y necesidades"
           />
-          <button
-            className="border-2 p-2 rounded-2xl w-3/4"
-          >Contáctanos</button>
+          <button className="border-2 px-6 py-3 rounded-2xl w-full sm:w-auto hover:bg-black hover:text-white transition">
+            Contáctanos
+          </button>
         </nav>
-        <Image
-          src="/Logo.png"
-          alt=""
-          width={300}
-          height={300}
-          className="object-cover -z-10"
-          priority
-        />
+
+        <div className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[500px]">
+          <Image
+            src="/Logo.png"
+            alt="Logo"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
       </div>
     </header>
   );
