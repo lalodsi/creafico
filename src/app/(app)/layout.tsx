@@ -1,5 +1,6 @@
 "use client"
 
+import { Footer } from "components/Footer";
 import { Header } from "components/Header";
 import { NavBar } from "components/Navbar";
 import { usePathname } from "next/navigation";
@@ -21,6 +22,10 @@ export default function AppLayout({
       <main className="py-12">
         {children}
       </main>
+      {
+        path !== "CONTACT" &&
+        <Footer />
+      }
     </div>
   );
 }
