@@ -208,7 +208,6 @@ export const services: Service[] = [
         title: "Folletos",
         description: "",
         images: [
-          { name: "Imagen impresion papel 1", url: "/products/productImage25.jpg" },
           { name: "Imagen impresion papel 1", url: "/products/productImage22.jpg" },
         ]
       },
@@ -238,6 +237,7 @@ export const services: Service[] = [
           { name: "Imagen etiquetas 1", url: "/products/productImage48.jpg" },
           { name: "Imagen etiquetas 1", url: "/products/productImage49.jpg" },
           { name: "Imagen etiquetas 1", url: "/products/productImage50.jpg" },
+          { name: "Imagen impresion papel 1", url: "/products/productImage25.jpg" },
         ]
       },
     ]
