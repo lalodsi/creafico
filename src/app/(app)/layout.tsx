@@ -19,7 +19,7 @@ export default function AppLayout({
         path !== "CONTACT" &&
         <Header />
       }
-      <main className="py-12">
+      <main className="py-14">
         {children}
       </main>
       {

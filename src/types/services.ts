@@ -27,24 +27,25 @@ export interface Service {
   images?: Image[]
 }
 
-interface Customer {
+interface CustomerImages {
   name: string;
   imageUrl: string
 }
 
-export const customers = {
+
+export const customers: {images: CustomerImages[]} = {
   images: [
-    { name: "Roshfrans", url: "/products/productImage73.jpg" },
-    { name: "Gapelli", url: "/products/productImage63.jpg" },
-    { name: "SPC", url: "/products/productImage64.jpg" },
-    { name: "Instituto de ingenieria UNAM", url: "/products/productImage72.jpg" },
-    { name: "Anfitriones", url: "/products/productImage67.jpg" },
-    { name: "Imbera", url: "/products/productImage65.jpg" },
-    { name: "Sportika", url: "/products/productImage71.jpg" },
-    { name: "Maxigas", url: "/products/productImage70.jpg" },
-    { name: "Widex", url: "/products/productImage74.jpg" },
-    { name: "Koblenz", url: "/products/productImage69.jpg" },
-    { name: "Coresa", url: "/products/productImage66.jpg" },
+    { name: "Roshfrans", imageUrl: "/products/productImage73.jpg" },
+    { name: "Gapelli", imageUrl: "/products/productImage63.jpg" },
+    { name: "SPC", imageUrl: "/products/productImage64.jpg" },
+    { name: "Instituto de ingenieria UNAM", imageUrl: "/products/productImage72.jpg" },
+    { name: "Anfitriones", imageUrl: "/products/productImage67.jpg" },
+    { name: "Imbera", imageUrl: "/products/productImage65.jpg" },
+    { name: "Sportika", imageUrl: "/products/productImage71.jpg" },
+    { name: "Maxigas", imageUrl: "/products/productImage70.jpg" },
+    { name: "Widex", imageUrl: "/products/productImage74.jpg" },
+    { name: "Koblenz", imageUrl: "/products/productImage69.jpg" },
+    { name: "Coresa", imageUrl: "/products/productImage66.jpg" },
   ]
 }
 

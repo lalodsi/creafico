@@ -17,3 +17,38 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+/* Animations */
+
+@keyframes marquee-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes marquee-down {
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee-up {
+  animation: marquee-up 30s linear infinite;
+}
+
+.animate-marquee-down {
+  animation: marquee-down 30s linear infinite;
+}
+
+.animate-marquee-up:hover,
+.animate-marquee-down:hover {
+  animation-duration: 30s;
+}
