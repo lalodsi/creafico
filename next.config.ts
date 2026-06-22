@@ -7,7 +7,6 @@ console.log("process.env: ", process.env)
 const nextConfig: NextConfig = {
   output: "export",
   basePath: isProd ? "/creafico" : "",
-  assetPrefix: isProd ? "/creafico/" : "",
   images: {
     unoptimized: true,
   },
