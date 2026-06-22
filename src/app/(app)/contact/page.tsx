@@ -90,18 +90,21 @@ export default function ContactPage() {
 
             <div className="grid sm:grid-cols-3 gap-6 w-full">
               <ContactCard
+                href="tel:+525512345678"
                 icon="📞"
                 title="Teléfono"
                 value="+52 55 1234 5678"
               />
 
               <ContactCard
+                href="mailto:contacto@creafico.com"
                 icon="✉️"
                 title="Correo Electrónico"
                 value="contacto@creafico.com"
               />
 
               <ContactCard
+                href="https://wa.me/525512345678"
                 icon="💬"
                 title="WhatsApp"
                 value="+52 55 1234 5678"
@@ -144,19 +147,22 @@ export default function ContactPage() {
   );
 }
 
-type ContactCardProps = {
-  icon: string;
+interface ContactCardProps {
+  icon: React.ReactNode;
   title: string;
   value: string;
-};
+  href: string;
+}
 
 function ContactCard({
   icon,
   title,
   value,
+  href,
 }: ContactCardProps) {
   return (
-    <div
+    <a
+      href={href}
       className="
         border
         border-zinc-300
@@ -168,6 +174,9 @@ function ContactCard({
         flex-col
         items-center
         justify-center
+        cursor-pointer
+        hover:bg-zinc-50
+        transition
       "
     >
       <div className="text-5xl mb-6">
@@ -181,6 +190,6 @@ function ContactCard({
       <p className="text-sm text-zinc-500">
         {value}
       </p>
-    </div>
+    </a>
   );
 }

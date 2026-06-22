@@ -16,10 +16,10 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative w-full aspect-square max-w-md mx-auto">
             <Image
-              src="/nosotros.jpg"
+              src="/Logo.png"
               alt="Nosotros"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
 

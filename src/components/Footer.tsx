@@ -16,10 +16,10 @@ export function Footer() {
 
           <nav className="flex flex-col items-center lg:items-start gap-8 text-zinc-700">
             <Link
-              href="/about"
+              href="/contact"
               className="hover:text-black transition"
             >
-              Nosotros
+              Contacto
             </Link>
 
             <Link
@@ -27,20 +27,6 @@ export function Footer() {
               className="hover:text-black transition"
             >
               Servicios
-            </Link>
-
-            <Link
-              href="/clients"
-              className="hover:text-black transition"
-            >
-              Clientes
-            </Link>
-
-            <Link
-              href="/gallery"
-              className="hover:text-black transition"
-            >
-              Galería
             </Link>
           </nav>
 
