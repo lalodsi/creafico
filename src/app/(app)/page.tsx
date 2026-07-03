@@ -16,7 +16,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative w-full aspect-square max-w-md mx-auto">
             <Image
-              src="/Logo.png"
+              src="./Logo.png"
               alt="Nosotros"
               fill
               className="object-contain"

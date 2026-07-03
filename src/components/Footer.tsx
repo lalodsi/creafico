@@ -63,7 +63,7 @@ export function Footer() {
             {/* Logo */}
             <div className="relative w-56 h-32 mt-6 border border-zinc-300">
               <Image
-                src="/Logo.png"
+                src="./Logo.png"
                 alt="Logo Creáfico"
                 fill
                 className="object-contain p-3"

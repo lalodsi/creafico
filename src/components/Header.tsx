@@ -19,7 +19,7 @@ export function Header() {
 
         <div className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[500px]">
           <Image
-            src="/Logo.png"
+            src="./Logo.png"
             alt="Logo"
             fill
             priority
