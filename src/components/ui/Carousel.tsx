@@ -44,18 +44,18 @@ export const Home: React.FC<HomeProps> = ({ data }) => {
           type="button"
           disabled={activeIndex === 0}
           onClick={() => setActiveIndex(activeIndex - 1)}
-          className="h-8 w-[77px] bg-[#060606] text-[#e5e5e5] disabled:opacity-50 hover:cursor-pointer mr-5"
+          className="h-8 w-[77px] bg-purple-800 text-in-purple-bg font-bold disabled:opacity-50 hover:cursor-pointer mr-5"
         >
-          Prev
+          Anterior
         </button>
 
         <button
           type="button"
           disabled={activeIndex === data.length - 1}
           onClick={() => setActiveIndex(activeIndex + 1)}
-          className="h-8 w-[77px] bg-[#060606] text-[#e5e5e5] disabled:opacity-50 hover:cursor-pointer"
+          className="h-8 w-[77px] bg-purple-800 text-in-purple-bg font-bold disabled:opacity-50 hover:cursor-pointer"
         >
-          Next
+          Siguiente
         </button>
       </div>
     </div>
@@ -111,7 +111,7 @@ export const Carousel: React.FC<CarouselProps> = ({
             className={clsx(
               "h-2 w-2 rounded-full",
               i !== childrenArray.length - 1 && "mr-2",
-              activeIndex === i ? "bg-zinc-300" : "bg-zinc-600"
+              activeIndex === i ? "bg-purple-300" : "bg-purple-600"
             )}
           />
         ))}
@@ -132,7 +132,6 @@ export const CarouselCard: React.FC<CarouselCardProps> = ({
   return (
     <div
       className={clsx(
-        // 👇 esto es lo importante
         "flex-shrink-0 basis-[80%] sm:basis-[60%] md:basis-[45%] lg:basis-[35%]",
         "h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]"
       )}

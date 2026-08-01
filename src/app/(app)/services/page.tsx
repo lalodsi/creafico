@@ -6,43 +6,41 @@ import { SubItem, services } from "types/services";
 import { useState } from "react";
 
 const SectionRight = (props: SubItem & { i: number }) => {
-  const randomNumber = Math.random();
-  const randomColor = randomNumber > 0.5 ? "bg-yellow text-in-yellow-bg" : "bg-purple text-in-purple-bg";
 
   return (
-    <div key={props.i} className="p-4 flex flex-col md:flex-row gap-4">
-      {props.images && (
-        <div className="w-full md:w-auto">
-          <Image
-            src={props.images[0].url}
-            alt={props.images[0].name}
-            width={250}
-            height={220}
-            className="object-cover w-full h-auto md:w-[250px] md:h-[220px]"
-            priority
-          />
+    <div className="px-0 sm:px-16 bg-yellow w-full">
+      <div key={props.i} className="p-4 bg-yellow flex flex-col md:flex-row gap-4">
+        {props.images && (
+          <div className="w-full md:w-auto border-10 border-purple">
+            <Image
+              src={props.images[0].url}
+              alt={props.images[0].name}
+              width={250}
+              height={220}
+              className="object-cover w-full h-auto md:w-[250px] md:h-[220px]"
+              priority
+            />
+          </div>
+        )}
+        <div className={clsx(props.images && "w-full md:w-[60%]")}>
+          <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
+          <p className="pl-4 text-sm md:text-base">{props.description}</p>
         </div>
-      )}
-      <div className={clsx(randomColor, props.images && "w-full md:w-[60%]")}>
-        <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
-        <p className="pl-4 text-sm md:text-base">{props.description}</p>
       </div>
     </div>
   );
 };
 
 const SectionLeft = (props: SubItem & { i: number }) => {
-  const randomNumber = Math.random();
-  const randomColor = randomNumber > 0.5 ? "bg-yellow" : "bg-purple";
 
   return (
-    <div key={props.i} className="p-4 flex flex-col md:flex-row gap-4">
-      <div className={clsx(randomColor, props.images && "w-full md:w-[60%]")}>
+    <div key={props.i} className="px-0 py-10 bg-purple text-in-purple-bg flex flex-col md:flex-row gap-4">
+      <div className={clsx(props.images && "w-full md:w-[60%]")}>
         <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
         <p className="pl-4 text-sm md:text-base">{props.description}</p>
       </div>
       {props.images && (
-        <div className="w-full md:w-auto">
+        <div className="w-full md:w-auto border-10 border-yellow">
           <Image
             src={props.images[0].url}
             alt={props.images[0].name}
@@ -66,18 +64,18 @@ const SectionCarousel = (props: SubItem & { i: number }) => {
     })) ?? [];
 
   return (
-    <div className="overflow-hidden px-2 md:px-0" key={props.i}>
-      <div className={clsx(props.images && "w-full")}>
+    <div className="overflow-hidden bg-purple-200/45 px-0 sm:px-16 md:px-0" key={props.i}>
+      <div className={clsx(props.images && "w-full bg-purple text-in-purple-bg text-center")}>
         <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
           {props.title}
         </h3>
-        <p className="text-sm md:text-base pl-2 md:pl-4 text-justify">
+        <p className="text-sm md:text-base pl-2 md:pl-4">
           {props.description}
         </p>
       </div>
 
       {/* viewport del carousel */}
-      <div className="mt-6 w-full max-w-full md:max-w-3xl mx-auto overflow-hidden">
+      <div className="mt-6 w-full max-w-full md:max-w-3xl mx-auto overflow-hidden mb-10">
         <Carousel data={cards} />
       </div>
     </div>
@@ -157,7 +155,7 @@ const SectionGrid = (props: SubItem & { i: number }) => {
   const items = props.images ?? [];
 
   return (
-    <div className="px-2 md:px-0" key={props.i}>
+    <div className="px-0 sm:px-16" key={props.i}>
       <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
         {props.title}
       </h3>
@@ -248,7 +246,7 @@ const SectionTabs = (props: SubItem & { i: number }) => {
 
 export default function ServicesPage() {
   return (
-    <main className="max-w-6xl mx-auto py-8 md:py-12 px-4 md:px-16 space-y-16 md:space-y-32">
+    <main className="max-w-6xl mx-auto py-8 md:py-12 px-0 space-y-16 md:space-y-32">
       {services.map((service, i) => {
         if ("subItems" in service && service.subItems?.length) {
           return (

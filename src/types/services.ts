@@ -89,7 +89,7 @@ export const services: Service[] = [
       "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
     subItems: [
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Coroplast",
         description: "lorem",
         images: [
@@ -110,7 +110,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Danglers",
         description:
           "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
@@ -128,15 +128,15 @@ export const services: Service[] = [
     ],
   },
   {
-    layoutType: "Carousel",
+    layoutType: "Right",
     title: "Stands",
     description:
       "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
     subItems: [
       {
-        layoutType: "Caroucel",
+        layoutType: "Carousel",
         title: "Stands (Ferias)",
-        description: "",
+        description: "ss",
         images: [
           { name: "Imagen stands 1", url: "./products/productImage68.jpg" },
           { name: "Imagen stands 2", url: "./products/productImage57.jpg" },
@@ -145,7 +145,7 @@ export const services: Service[] = [
         ],
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Escenografias",
         description: "",
         images: [
@@ -171,7 +171,7 @@ export const services: Service[] = [
         description: "",
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Pendones y banners (con soporte)",
         description: "",
         images: [
@@ -181,7 +181,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Grid",
         title: "Serialización Industrial (Letreros)",
         description: "",
         images: [
@@ -213,7 +213,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Revistas y Libros",
         description: "",
         images: [
@@ -229,7 +229,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Etiquetas Adheribles",
         description:
           "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
@@ -248,18 +248,9 @@ export const services: Service[] = [
   title: "Branding (rotulacion) vinil adhesivo",
     description:
       "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
-    images: [
-      { name: "Imagen branding rotulacion 1", url: "./products/productImage8.jpg" },
-      { name: "Imagen branding rotulacion 1", url: "./products/productImage10.jpg" },
-      { name: "Imagen branding rotulacion 1", url: "./products/productImage9.jpg" },
-      { name: "Imagen branding rotulacion 1", url: "./products/productImage6.jpg" },
-      { name: "Imagen branding rotulacion 1", url: "./products/productImage11.jpg" },
-      { name: "Imagen branding rotulacion 1", url: "./products/productImage12.jpg" },
-      { name: "Imagen branding rotulacion 1", url: "./products/productImage7.jpg" },
-    ],
     subItems: [
       {
-        layoutType: "Right",
+        layoutType: "Carousel",
         title: "Vehiculos",
         description: "",
         images: [
@@ -273,7 +264,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Grid",
         title: "Camiones",
         description:"",
         images: [
@@ -290,7 +281,7 @@ export const services: Service[] = [
       "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
     subItems: [
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Gafetes",
         description: "",
         images: [
@@ -308,7 +299,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Serialización Programa",
         description: "",
         images: [
@@ -319,9 +310,14 @@ export const services: Service[] = [
         layoutType: "Right",
         title: "Cordones para Gafetes",
         description: "",
+        images: [
+          { name: "Imagen materiales eventos 1", url: "./products/productImage58.jpg" },
+          { name: "Imagen materiales eventos 1", url: "./products/productImage56.jpg" },
+          { name: "Imagen materiales eventos 1", url: "./products/productImage61.jpg" },
+        ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Bandas Edecan",
         description: "",
         images: [
@@ -336,7 +332,7 @@ export const services: Service[] = [
     description: "",
     subItems: [
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Papel laminado",
         description: ""
       },
@@ -346,7 +342,7 @@ export const services: Service[] = [
         description: ""
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Vinil Adherible",
         description: ""
       },
@@ -367,7 +363,7 @@ export const services: Service[] = [
         ]
       },
       {
-        layoutType: "Right",
+        layoutType: "Left",
         title: "Comics",
         description: "",
         images: [
