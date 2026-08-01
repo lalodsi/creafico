@@ -54,7 +54,7 @@ export const services: Service[] = [
     layoutType: "Right",
     title: "Muebles Exhibición",
     description:
-      "Amet culpa proident in tempor elit cillum fugiat consequat. Minim eu aute consequat adipisicing enim Lorem aliqua anim incididunt non eu dolore proident dolore. Sit velit tempor sit esse exercitation aliquip magna. Ipsum eiusmod irure culpa ad id qui deserunt. Dolor eiusmod nulla proident pariatur.",
+      "",
     subItems: [
       {
         layoutType: "Grid",

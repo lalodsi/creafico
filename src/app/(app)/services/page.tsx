@@ -170,7 +170,7 @@ const SectionGrid = (props: SubItem & { i: number }) => {
         {items.map((img, i) => (
           <div
             key={i}
-            className="rounded-xl overflow-hidden bg-zinc-900/5 hover:bg-zinc-900/10 transition-colors duration-300"
+            className="rounded-xl overflow-hidden bg-purple hover:bg-yellow transition-colors duration-300"
           >
             <div
               className="w-full h-[180px] md:h-[200px] bg-cover bg-center"
@@ -178,7 +178,7 @@ const SectionGrid = (props: SubItem & { i: number }) => {
             />
 
             <div className="p-4">
-              <h4 className="font-semibold text-base md:text-lg mb-2">
+              <h4 className="font-semibold text-base text-in-purple-bg hover:text-in-yellow-bg md:text-lg mb-2">
                 {img.name}
               </h4>
             </div>
