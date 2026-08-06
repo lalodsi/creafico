@@ -4,7 +4,7 @@ import { Section } from "components/ui/Section";
 
 export default function ContactPage() {
   return (
-    <main className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-20">
+    <main className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-20 bg-yellow/30 text-in-yellow-bg">
       <Section>
         <div className="grid lg:grid-cols-2 gap-16">
           {/* FORMULARIO */}
@@ -13,12 +13,12 @@ export default function ContactPage() {
               Contáctanos
             </h1>
 
-            <p className="text-zinc-600 max-w-md mb-4">
+            <p className="max-w-md mb-4">
               Siéntete libre de enviarnos un correo para conocer
               sobre nuestros servicios o comenzar una cotización.
             </p>
 
-            <p className="text-sm text-zinc-500 mb-12">
+            <p className="text-sm mb-12">
               Horarios de atención: 9:00 AM a 6:00 PM
             </p>
 
@@ -63,11 +63,11 @@ export default function ContactPage() {
               <button
                 type="submit"
                 className="
-                  border
-                  border-zinc-500
+                  border-2
+                  border-purple-400
                   rounded-xl
                   py-3
-                  hover:bg-black
+                  hover:bg-purple
                   hover:text-white
                   transition
                 "
@@ -112,36 +112,6 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-
-        {/* POLÍTICA */}
-        <Container className="mt-24">
-          <h2 className="text-4xl font-semibold text-center mb-12">
-            Política de Privacidad
-          </h2>
-
-          <div className="space-y-6 text-zinc-600 leading-8">
-            <p>
-              Fusce at nisi arcu. Quisque sed dolor nec dui
-              scelerisque dapibus...
-            </p>
-
-            <p>
-              Nullam vehicula magna sit amet magna ullamcorper...
-            </p>
-
-            <p>
-              Integer a ipsum vitae urna varius egestas...
-            </p>
-
-            <p>
-              Donec et urna vel risus feugiat pharetra...
-            </p>
-
-            <p>
-              Sed vehicula magna at lacus interdum...
-            </p>
-          </div>
-        </Container>
       </Section>
     </main>
   );
@@ -164,8 +134,8 @@ function ContactCard({
     <a
       href={href}
       className="
-        border
-        border-zinc-300
+        border-2
+        border-purple-400
         rounded-2xl
         p-8
         text-center
@@ -175,6 +145,8 @@ function ContactCard({
         items-center
         justify-center
         cursor-pointer
+        bg-purple
+        text-in-purple-bg
         hover:bg-zinc-50
         transition
       "
@@ -187,7 +159,7 @@ function ContactCard({
         {title}
       </h3>
 
-      <p className="text-sm text-zinc-500">
+      <p className="text-sm">
         {value}
       </p>
     </a>

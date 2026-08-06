@@ -3,7 +3,7 @@
 import { Footer } from "components/Footer";
 import { Header } from "components/Header";
 import { NavBar } from "components/Navbar";
-import { usePathname } from "next/navigation";
+import { usePathname, } from "next/navigation";
 import { PAGES } from "types/constants";
 
 export default function AppLayout({
@@ -16,14 +16,14 @@ export default function AppLayout({
     <div className="min-h-screen text-zinc-900">
       <NavBar />
       {
-        path !== "CONTACT" &&
+        path !== "/contact" &&
         <Header />
       }
       <main className="py-14">
         {children}
       </main>
       {
-        path !== "CONTACT" &&
+        path !== "/contact" &&
         <Footer />
       }
     </div>

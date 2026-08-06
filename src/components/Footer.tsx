@@ -5,26 +5,26 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-200 bg-white">
+    <footer className="border-t border-zinc-200 bg-purple text-in-purple-bg">
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           <div className="flex justify-center lg:justify-start">
-            <h2 className="text-3xl font-light tracking-wide">
+            <h2 className="text-6xl font-light tracking-wide">
               Creáfico
             </h2>
           </div>
 
-          <nav className="flex flex-col items-center lg:items-start gap-8 text-zinc-700">
+          <nav className="flex flex-col items-center lg:items-start gap-8">
             <Link
               href="/contact"
-              className="hover:text-black transition"
+              className="hover:text-yellow transition"
             >
               Contacto
             </Link>
 
             <Link
               href="/services"
-              className="hover:text-black transition"
+              className="hover:text-yellow transition"
             >
               Servicios
             </Link>
@@ -33,20 +33,20 @@ export function Footer() {
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-3">
             <h3 className="font-medium">Creáfico</h3>
 
-            <p className="text-zinc-700">
+            <p>
               Diseño | Espacios | Impresión
             </p>
 
             <a
               href="mailto:contacto@creafico.com"
-              className="hover:underline"
+              className="hover:underline hover:text-yellow"
             >
               Correo Electrónico: contacto@creafico.com
             </a>
 
             <a
               href="tel:+525512345678"
-              className="hover:underline"
+              className="hover:underline hover:text-yellow"
             >
               Teléfono: +52 55 1234 5678
             </a>
@@ -55,13 +55,13 @@ export function Footer() {
               href="https://wa.me/525512345678"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="hover:underline hover:text-yellow"
             >
               Contáctanos por WhatsApp
             </a>
 
             {/* Logo */}
-            <div className="relative w-56 h-32 mt-6 border border-zinc-300">
+            <div className="relative w-56 h-32 mt-6 border border-zinc-300 bg-zinc-300">
               <Image
                 src="./Logo.png"
                 alt="Logo Creáfico"
