@@ -4,6 +4,7 @@ import { Card, Home as Carousel } from "components/ui/Carousel";
 import Image from "next/image";
 import { SubItem, services } from "types/services";
 import { useState } from "react";
+import { TitleBlock } from "components/ui/TitleBlock";
 
 const SectionRight = (props: SubItem & { i: number }) => {
 
@@ -46,7 +47,7 @@ const SectionLeft = (props: SubItem & { i: number }) => {
             alt={props.images[0].name}
             width={250}
             height={220}
-            className="object-cover w-full h-auto md:w-[250px] md:h-[220px]"
+            className="object-contain w-full h-auto md:w-[250px]"
             priority
           />
         </div>
@@ -251,9 +252,11 @@ export default function ServicesPage() {
         if ("subItems" in service && service.subItems?.length) {
           return (
             <section key={i} id={`service${i}`}>
-              <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                {service.title}
-              </h2>
+              <TitleBlock
+                title={service.title}
+                subtitle={service.description}
+                type="services"
+              />
               {service.subItems.map((subservice, j) => {
                 if (subservice.layoutType === "Right") {
                   return <SectionRight {...subservice} i={j} />;
