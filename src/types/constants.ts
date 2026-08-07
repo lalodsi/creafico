@@ -1,2 +1,2 @@
-export type PAGES = 'HOME' | 'SERVICES' | 'CONTACT'
+export type PAGES = '/' | '/services' | '/contact'
 
