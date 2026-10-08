@@ -1,0 +1,15 @@
+---
+description: Contexto base de Creafico, sitio estático de publicidad
+alwaysApply: true
+---
+
+# Creafico
+
+Sitio en español de publicidad e impresión. Next.js 16 con `output: "export"`, publicado en GitHub Pages bajo `/creafico`.
+
+- Los textos de servicios viven solo en `src/types/services.ts`.
+- Enlaza fichas con `servicePath()` (`/services/{id}` o `/services/{id}-{subId}`).
+- Referencia archivos de `public/` con `assetUrl()` de `types/assets`.
+- Toda ruta dinámica necesita `generateStaticParams` y `dynamicParams = false`.
+- Redux está instalado y no se usa. No crees un store si no se pide.
+- El detalle del mapa, el deploy y las trampas está en `AGENTS.md`.

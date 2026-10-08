@@ -1,0 +1,23 @@
+---
+description: Cómo referenciar imágenes y archivos de public/
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+# Archivos públicos
+
+`next/image` está sin optimizar y no antepone `basePath`. Una ruta `./products/foto.jpg` se resuelve contra la URL abierta y, en una ficha, pide `/services/products/foto.jpg`.
+
+```tsx
+// Incorrecto dentro de /services/[serviceId]
+<Image src={image.url} alt={image.name} />
+<div style={{ backgroundImage: `url(${image.url})` }} />
+
+// Correcto en dev y en GitHub Pages
+import { assetUrl } from "types/assets";
+
+<Image src={assetUrl(image.url)} alt={image.name} />
+<div style={{ backgroundImage: `url("${assetUrl(image.url)}")` }} />
+```
+
+Los datos pueden seguir guardando `./products/...`. Convierte la ruta al renderizar. `assetUrl()` también cubre `./Logo.png`.

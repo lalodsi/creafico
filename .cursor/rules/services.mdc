@@ -1,0 +1,22 @@
+---
+description: Datos, slugs y páginas del catálogo de servicios
+globs: src/types/services.ts,src/app/**/services/**/*.tsx
+alwaysApply: false
+---
+
+# Servicios
+
+Agrega o edita el servicio en `src/types/services.ts`. El catálogo y la ficha leen ese arreglo; no dupliques el copy en el JSX.
+
+```ts
+servicePath("pops", "coroplast")
+// "/services/pops-coroplast"
+
+servicePath("maletas-y-estuches-personalizados")
+// "/services/maletas-y-estuches-personalizados"
+```
+
+- `id` en kebab-case. `slugPart()` elimina acentos, así que `viñetas` publica `vinetas`.
+- Con `subItems`, hay una ruta por subservicio. Sin ellos, la ruta es el `id` del servicio.
+- El listado usa `shortDescription` y `images[0]`. La ficha usa `description` y todas las `images`.
+- Mantén `generateStaticParams` ligado a `listServicePages()` y `dynamicParams = false`.

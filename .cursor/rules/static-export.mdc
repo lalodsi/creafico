@@ -1,0 +1,14 @@
+---
+description: Límites del export estático y de las rutas dinámicas
+globs: next.config.ts,src/app/**/*.tsx
+alwaysApply: false
+---
+
+# Export estático
+
+`next.config.ts` fija `output: "export"`. El build escribe `./out` y GitHub Pages lo publica. En producción `basePath` y `assetPrefix` son `/creafico`; en `next dev` van vacíos.
+
+- No uses Server Actions, `cookies()`, `headers()` ni `redirect()` que dependan de un request.
+- Una carpeta `[param]` debe exportar `generateStaticParams`.
+- Deja `dynamicParams = false`. Un slug ausente de esa lista es un 404, también en dev.
+- Los enlaces internos van con `next/link` y rutas sin el `basePath` (`/services`, no `/creafico/services`). Next lo agrega.
