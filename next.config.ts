@@ -1,13 +1,12 @@
 import type { NextConfig } from "next";
-
-const isProd = process.env.NODE_ENV === 'production'
+import { basePath } from "./src/types/assets";
 
 console.log("process.env: ", process.env)
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: isProd ? "/creafico" : "",
-  assetPrefix: isProd ? "/creafico/" : "",
+  basePath,
+  assetPrefix: basePath ? `${basePath}/` : "",
   images: {
     unoptimized: true,
   },

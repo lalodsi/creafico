@@ -706,6 +706,44 @@ export const services: Service[] = [
   }
 ] as const;
 
+function slugPart(value: string) {
+  return value.normalize("NFD").replace(/\p{M}/gu, "");
+}
+
+export function serviceSlug(serviceId: string, subItemId?: string) {
+  return subItemId
+    ? `${slugPart(serviceId)}-${slugPart(subItemId)}`
+    : slugPart(serviceId);
+}
+
+export function servicePath(serviceId: string, subItemId?: string) {
+  return `/services/${serviceSlug(serviceId, subItemId)}`;
+}
+
+export type ServicePageData = {
+  slug: string;
+  service: Service;
+  subItem?: SubItem;
+};
+
+export function listServicePages(): ServicePageData[] {
+  return services.flatMap((service) => {
+    if (service.subItems?.length) {
+      return service.subItems.map((subItem) => ({
+        slug: serviceSlug(service.id, subItem.id),
+        service,
+        subItem,
+      }));
+    }
+
+    return [{ slug: serviceSlug(service.id), service }];
+  });
+}
+
+export function findServicePage(slug: string) {
+  return listServicePages().find((page) => page.slug === slug);
+}
+
 
 
 

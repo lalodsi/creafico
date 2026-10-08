@@ -2,11 +2,29 @@
 import clsx from "clsx";
 import { Card, Home as Carousel } from "components/ui/Carousel";
 import Image from "next/image";
-import { SubItem, services } from "types/services";
+import Link from "next/link";
+import { assetUrl } from "types/assets";
+import { SubItem, servicePath, services } from "types/services";
 import { useState } from "react";
 import { TitleBlock } from "components/ui/TitleBlock";
 
-const SectionRight = (props: SubItem & { i: number }) => {
+type SectionProps = SubItem & { i: number; href: string };
+
+function VerMas({ href, className }: { href: string; className?: string }) {
+  return (
+    <Link
+      href={href}
+      className={clsx(
+        "inline-block mt-4 border border-current px-8 py-3 text-sm font-semibold hover:bg-black hover:text-white hover:border-black transition",
+        className
+      )}
+    >
+      Ver más
+    </Link>
+  );
+}
+
+const SectionRight = (props: SectionProps) => {
 
   return (
     <div className="px-0 sm:px-16 bg-yellow w-full">
@@ -14,7 +32,7 @@ const SectionRight = (props: SubItem & { i: number }) => {
         {props.images && (
           <div className="w-full md:w-auto border-10 border-purple">
             <Image
-              src={props.images[0].url}
+              src={assetUrl(props.images[0].url)}
               alt={props.images[0].name}
               width={250}
               height={220}
@@ -26,24 +44,26 @@ const SectionRight = (props: SubItem & { i: number }) => {
         <div className={clsx(props.images && "w-full md:w-[60%]")}>
           <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
           <p className="pl-4 text-sm md:text-base">{props.shortDescription}</p>
+          <VerMas href={props.href} className="ml-4" />
         </div>
       </div>
     </div>
   );
 };
 
-const SectionLeft = (props: SubItem & { i: number }) => {
+const SectionLeft = (props: SectionProps) => {
 
   return (
     <div key={props.i} className="px-0 py-10 bg-purple text-in-purple-bg flex flex-col md:flex-row gap-4">
       <div className={clsx(props.images && "w-full md:w-[60%]")}>
         <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
         <p className="pl-4 text-sm md:text-base">{props.shortDescription}</p>
+        <VerMas href={props.href} className="ml-4" />
       </div>
       {props.images && (
         <div className="w-full md:w-auto border-10 border-yellow">
           <Image
-            src={props.images[0].url}
+            src={assetUrl(props.images[0].url)}
             alt={props.images[0].name}
             width={250}
             height={220}
@@ -56,7 +76,7 @@ const SectionLeft = (props: SubItem & { i: number }) => {
   );
 };
 
-const SectionCarousel = (props: SubItem & { i: number }) => {
+const SectionCarousel = (props: SectionProps) => {
   const cards: Card[] =
     props.images?.map((image, i) => ({
       id: i,
@@ -73,6 +93,7 @@ const SectionCarousel = (props: SubItem & { i: number }) => {
         <p className="text-sm md:text-base pl-2 md:pl-4">
           {props.shortDescription}
         </p>
+        <VerMas href={props.href} className="mb-6" />
       </div>
 
       {/* viewport del carousel */}
@@ -83,7 +104,7 @@ const SectionCarousel = (props: SubItem & { i: number }) => {
   );
 };
 
-const SectionHoverExpand = (props: SubItem & { i: number }) => {
+const SectionHoverExpand = (props: SectionProps) => {
   const items = props.images ?? [];
 
   return (
@@ -95,6 +116,7 @@ const SectionHoverExpand = (props: SubItem & { i: number }) => {
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
         {props.shortDescription}
       </p>
+      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {items.map((img, i) => (
@@ -105,7 +127,7 @@ const SectionHoverExpand = (props: SubItem & { i: number }) => {
             {/* imagen */}
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style={{ backgroundImage: `url(${img.url})` }}
+              style={{ backgroundImage: `url("${assetUrl(img.url)}")` }}
             />
 
             {/* overlay */}
@@ -122,7 +144,7 @@ const SectionHoverExpand = (props: SubItem & { i: number }) => {
   );
 };
 
-const SectionMasonry = (props: SubItem & { i: number }) => {
+const SectionMasonry = (props: SectionProps) => {
   const items = props.images ?? [];
 
   return (
@@ -134,6 +156,7 @@ const SectionMasonry = (props: SubItem & { i: number }) => {
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
         {props.shortDescription}
       </p>
+      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
 
       <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
         {items.map((img, i) => (
@@ -143,7 +166,7 @@ const SectionMasonry = (props: SubItem & { i: number }) => {
           >
             <div
               className="w-full h-[200px] md:h-[250px] bg-cover bg-center hover:scale-105 transition-transform duration-500"
-              style={{ backgroundImage: `url(${img.url})` }}
+              style={{ backgroundImage: `url("${assetUrl(img.url)}")` }}
             />
           </div>
         ))}
@@ -152,7 +175,7 @@ const SectionMasonry = (props: SubItem & { i: number }) => {
   );
 };
 
-const SectionGrid = (props: SubItem & { i: number }) => {
+const SectionGrid = (props: SectionProps) => {
   const items = props.images ?? [];
 
   return (
@@ -164,6 +187,7 @@ const SectionGrid = (props: SubItem & { i: number }) => {
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
         {props.shortDescription}
       </p>
+      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map((img, i) => (
@@ -173,7 +197,7 @@ const SectionGrid = (props: SubItem & { i: number }) => {
           >
             <div
               className="w-full h-[180px] md:h-[200px] bg-cover bg-center"
-              style={{ backgroundImage: `url(${img.url})` }}
+              style={{ backgroundImage: `url("${assetUrl(img.url)}")` }}
             />
 
             <div className="p-4">
@@ -188,7 +212,7 @@ const SectionGrid = (props: SubItem & { i: number }) => {
   );
 };
 
-const SectionTabs = (props: SubItem & { i: number }) => {
+const SectionTabs = (props: SectionProps) => {
   const items = props.images ?? [];
   const [active, setActive] = useState(0);
 
@@ -201,6 +225,7 @@ const SectionTabs = (props: SubItem & { i: number }) => {
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
         {props.shortDescription}
       </p>
+      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
 
       {/* tabs */}
       <div className="flex overflow-x-auto gap-2 mb-6 px-2 md:px-4">
@@ -226,7 +251,7 @@ const SectionTabs = (props: SubItem & { i: number }) => {
           <div className="w-full md:w-1/2">
             <div
               className="w-full h-[220px] md:h-[300px] bg-contain bg-no-repeat bg-center"
-              style={{ backgroundImage: `url(${items[active].url})` }}
+              style={{ backgroundImage: `url("${assetUrl(items[active].url)}")` }}
             />
           </div>
 
@@ -258,26 +283,27 @@ export default function ServicesPage() {
                 type="services"
               />
               {service.subItems.map((subservice, j) => {
+                const href = servicePath(service.id, subservice.id);
                 if (subservice.layoutType === "Right") {
-                  return <SectionRight {...subservice} i={j} />;
+                  return <SectionRight key={subservice.id} {...subservice} i={j} href={href} />;
                 }
                 if (subservice.layoutType === "Left") {
-                  return <SectionLeft {...subservice} i={j} />;
+                  return <SectionLeft key={subservice.id} {...subservice} i={j} href={href} />;
                 }
                 if (subservice.layoutType === "Carousel") {
-                  return <SectionCarousel {...subservice} i={j} />;
+                  return <SectionCarousel key={subservice.id} {...subservice} i={j} href={href} />;
                 }
                 if (subservice.layoutType === "HoverExpand") {
-                  return <SectionHoverExpand {...subservice} i={j} />;
+                  return <SectionHoverExpand key={subservice.id} {...subservice} i={j} href={href} />;
                 }
                 if (subservice.layoutType === "Masonry") {
-                  return <SectionMasonry {...subservice} i={j} />;
+                  return <SectionMasonry key={subservice.id} {...subservice} i={j} href={href} />;
                 }
                 if (subservice.layoutType === "Grid") {
-                  return <SectionGrid {...subservice} i={j} />;
+                  return <SectionGrid key={subservice.id} {...subservice} i={j} href={href} />;
                 }
                 if (subservice.layoutType === "Tabs") {
-                  return <SectionTabs {...subservice} i={j} />;
+                  return <SectionTabs key={subservice.id} {...subservice} i={j} href={href} />;
                 }
 
                return null;
@@ -286,26 +312,27 @@ export default function ServicesPage() {
           );
         }
 
+        const href = servicePath(service.id);
         if (service.layoutType === "Right") {
-          return <SectionRight {...service} i={i} />;
+          return <SectionRight key={service.id} {...service} i={i} href={href} />;
         }
         if (service.layoutType === "Left") {
-          return <SectionLeft {...service} i={i} />;
+          return <SectionLeft key={service.id} {...service} i={i} href={href} />;
         }
         if (service.layoutType === "Carousel") {
-          return <SectionCarousel {...service} i={i} />;
+          return <SectionCarousel key={service.id} {...service} i={i} href={href} />;
         }
         if (service.layoutType === "HoverExpand") {
-          return <SectionHoverExpand {...service} i={i} />;
+          return <SectionHoverExpand key={service.id} {...service} i={i} href={href} />;
         }
         if (service.layoutType === "Masonry") {
-          return <SectionMasonry {...service} i={i} />;
+          return <SectionMasonry key={service.id} {...service} i={i} href={href} />;
         }
         if (service.layoutType === "Grid") {
-          return <SectionGrid {...service} i={i} />;
+          return <SectionGrid key={service.id} {...service} i={i} href={href} />;
         }
         if (service.layoutType === "Tabs") {
-          return <SectionTabs {...service} i={i} />;
+          return <SectionTabs key={service.id} {...service} i={i} href={href} />;
         }
 
         return null;

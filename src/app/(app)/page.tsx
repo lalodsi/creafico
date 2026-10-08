@@ -1,6 +1,7 @@
 import { ServicesMarquee } from "components/ui/ServiceMarquee";
 import Image from "next/image";
 import Link from "next/link";
+import { assetUrl } from "types/assets";
 import { customers } from "types/services";
 
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="relative w-full aspect-square max-w-md mx-auto">
             <Image
-              src="./Logo.png"
+              src={assetUrl("./Logo.png")}
               alt="Nosotros"
               fill
               className="object-contain"
@@ -129,7 +130,7 @@ function ClientLogo({
   return (
     <div className="relative h-36 bg-zinc-100">
       <Image
-        src={src}
+        src={assetUrl(src)}
         alt="Cliente"
         fill
         className="object-contain p-4"

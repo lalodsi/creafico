@@ -6,6 +6,7 @@ import React, {
   Children,
 } from 'react';
 import clsx from 'clsx';
+import { assetUrl } from 'types/assets';
 
 type CarouselProps = {
   activeIndex: number;
@@ -33,7 +34,7 @@ export const Home: React.FC<HomeProps> = ({ data }) => {
           <CarouselCard key={card.id} active={activeIndex === i}>
             <div
             className="carousel-card-image w-full h-full bg-contain bg-no-repeat bg-center"
-            style={{ backgroundImage: `url("${card.image}")` }}
+            style={{ backgroundImage: `url("${assetUrl(card.image)}")` }}
             />
           </CarouselCard>
         ))}

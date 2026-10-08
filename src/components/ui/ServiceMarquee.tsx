@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetUrl } from "types/assets";
 import { services } from "types/services";
 import type { Service, SubItem } from "types/services";
 
@@ -87,7 +88,7 @@ function ServiceCard({
     <div className="relative aspect-3/4 w-full overflow-hidden rounded-lg">
     <div className="flex flex-col gap-4">
         <Image
-          src={image}
+          src={assetUrl(image)}
           alt={title}
           fill
           className="object-cover"

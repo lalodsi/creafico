@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetUrl } from "types/assets";
 import { Container } from "components/ui/Container";
 import { Section } from "components/ui/Section";
 
@@ -81,7 +82,7 @@ export default function ContactPage() {
           <div className="flex flex-col items-center">
             <div className="relative w-56 h-28 mb-12">
               <Image
-                src="./Logo.png"
+                src={assetUrl("./Logo.png")}
                 alt="Logo"
                 fill
                 className="object-contain"

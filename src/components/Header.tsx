@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { assetUrl } from "types/assets";
 import { TitleBlock } from "./ui/TitleBlock";
 
 export function Header() {
@@ -19,7 +20,7 @@ export function Header() {
 
         <div className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[500px]">
           <Image
-            src="./Logo.png"
+            src={assetUrl("./Logo.png")}
             alt="Logo"
             fill
             priority

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { assetUrl } from "types/assets";
 
 export function Footer() {
   return (
@@ -63,7 +64,7 @@ export function Footer() {
             {/* Logo */}
             <div className="relative w-56 h-32 mt-6 border border-zinc-300 bg-zinc-300">
               <Image
-                src="./Logo.png"
+                src={assetUrl("./Logo.png")}
                 alt="Logo Creáfico"
                 fill
                 className="object-contain p-3"
