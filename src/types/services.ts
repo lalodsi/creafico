@@ -668,7 +668,8 @@ export const services: Service[] = [
     "layoutType": "Grid",
     "id": "maletas-y-estuches-personalizados",
     "title": "Maletas y estuches personalizados",
-    "description": "",
+    "description": "Premia la lealtad de tus mejores clientes o equipa a tus ejecutivos de ventas con un artículo de alto valor percibido: maletas, mochilas, porta laptops y estuches personalizados. Estos artículos promocionales van mucho más allá de un simple regalo; son herramientas prácticas de uso diario que proyectan una imagen corporativa sólida en reuniones, aeropuertos y visitas de negocios. Fabricados con materiales duraderos y costuras reforzadas, garantizan la protección de equipos electrónicos y documentos. Aplicamos tu logotipo mediante bordado de alta precisión o serigrafía textil, asegurando durabilidad y elegancia. Es una inversión inteligente que mantiene a tu marca en constante movimiento.",
+    "shortDescription": "Obsequia artículos de valor con maletas y estuches corporativos personalizados. Prácticos, resistentes y bordados con tu logotipo, son excelentes regalos ejecutivos o para equipar a tu fuerza de ventas, llevando tu marca a todas partes con un gran estilo y utilidad.",
     "images": [
       {
         "name": "Imagen porta laptop 1",
