@@ -25,7 +25,7 @@ const SectionRight = (props: SubItem & { i: number }) => {
         )}
         <div className={clsx(props.images && "w-full md:w-[60%]")}>
           <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
-          <p className="pl-4 text-sm md:text-base">{props.description}</p>
+          <p className="pl-4 text-sm md:text-base">{props.shortDescription}</p>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@ const SectionLeft = (props: SubItem & { i: number }) => {
     <div key={props.i} className="px-0 py-10 bg-purple text-in-purple-bg flex flex-col md:flex-row gap-4">
       <div className={clsx(props.images && "w-full md:w-[60%]")}>
         <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
-        <p className="pl-4 text-sm md:text-base">{props.description}</p>
+        <p className="pl-4 text-sm md:text-base">{props.shortDescription}</p>
       </div>
       {props.images && (
         <div className="w-full md:w-auto border-10 border-yellow">
@@ -71,7 +71,7 @@ const SectionCarousel = (props: SubItem & { i: number }) => {
           {props.title}
         </h3>
         <p className="text-sm md:text-base pl-2 md:pl-4">
-          {props.description}
+          {props.shortDescription}
         </p>
       </div>
 
@@ -93,7 +93,7 @@ const SectionHoverExpand = (props: SubItem & { i: number }) => {
       </h3>
 
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.description}
+        {props.shortDescription}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -132,7 +132,7 @@ const SectionMasonry = (props: SubItem & { i: number }) => {
       </h3>
 
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.description}
+        {props.shortDescription}
       </p>
 
       <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
@@ -162,7 +162,7 @@ const SectionGrid = (props: SubItem & { i: number }) => {
       </h3>
 
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.description}
+        {props.shortDescription}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -199,7 +199,7 @@ const SectionTabs = (props: SubItem & { i: number }) => {
       </h3>
 
       <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.description}
+        {props.shortDescription}
       </p>
 
       {/* tabs */}
@@ -254,7 +254,7 @@ export default function ServicesPage() {
             <section key={i} id={`service${i}`}>
               <TitleBlock
                 title={service.title}
-                subtitle={service.description}
+                subtitle={service.shortDescription}
                 type="services"
               />
               {service.subItems.map((subservice, j) => {
