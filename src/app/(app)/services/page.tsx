@@ -1,341 +1,78 @@
-"use client"
-import clsx from "clsx";
-import { Card, Home as Carousel } from "components/ui/Carousel";
 import Image from "next/image";
 import Link from "next/link";
-import { assetUrl } from "types/assets";
-import { SubItem, servicePath, services } from "types/services";
-import { useState } from "react";
 import { TitleBlock } from "components/ui/TitleBlock";
-
-type SectionProps = SubItem & { i: number; href: string };
-
-function VerMas({ href, className }: { href: string; className?: string }) {
-  return (
-    <Link
-      href={href}
-      className={clsx(
-        "inline-block mt-4 border border-current px-8 py-3 text-sm font-semibold hover:bg-black hover:text-white hover:border-black transition",
-        className
-      )}
-    >
-      Ver más
-    </Link>
-  );
-}
-
-const SectionRight = (props: SectionProps) => {
-
-  return (
-    <div className="px-0 sm:px-16 bg-yellow w-full">
-      <div key={props.i} className="p-4 bg-yellow flex flex-col md:flex-row gap-4">
-        {props.images && (
-          <div className="w-full md:w-auto border-10 border-purple">
-            <Image
-              src={assetUrl(props.images[0].url)}
-              alt={props.images[0].name}
-              width={250}
-              height={220}
-              className="object-cover w-full h-auto md:w-[250px] md:h-[220px]"
-              priority
-            />
-          </div>
-        )}
-        <div className={clsx(props.images && "w-full md:w-[60%]")}>
-          <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
-          <p className="pl-4 text-sm md:text-base">{props.shortDescription}</p>
-          <VerMas href={props.href} className="ml-4" />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const SectionLeft = (props: SectionProps) => {
-
-  return (
-    <div key={props.i} className="px-0 py-10 bg-purple text-in-purple-bg flex flex-col md:flex-row gap-4">
-      <div className={clsx(props.images && "w-full md:w-[60%]")}>
-        <h3 className="text-xl md:text-2xl font-bold mb-4 pl-4">{props.title}</h3>
-        <p className="pl-4 text-sm md:text-base">{props.shortDescription}</p>
-        <VerMas href={props.href} className="ml-4" />
-      </div>
-      {props.images && (
-        <div className="w-full md:w-auto border-10 border-yellow">
-          <Image
-            src={assetUrl(props.images[0].url)}
-            alt={props.images[0].name}
-            width={250}
-            height={220}
-            className="object-contain w-full h-auto md:w-[250px]"
-            priority
-          />
-        </div>
-      )}
-    </div>
-  );
-};
-
-const SectionCarousel = (props: SectionProps) => {
-  const cards: Card[] =
-    props.images?.map((image, i) => ({
-      id: i,
-      title: image.name,
-      image: image.url,
-    })) ?? [];
-
-  return (
-    <div className="overflow-hidden bg-purple-200/45 px-0 sm:px-16 md:px-0" key={props.i}>
-      <div className={clsx(props.images && "w-full bg-purple text-in-purple-bg text-center")}>
-        <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
-          {props.title}
-        </h3>
-        <p className="text-sm md:text-base pl-2 md:pl-4">
-          {props.shortDescription}
-        </p>
-        <VerMas href={props.href} className="mb-6" />
-      </div>
-
-      {/* viewport del carousel */}
-      <div className="mt-6 w-full max-w-full md:max-w-3xl mx-auto overflow-hidden mb-10">
-        <Carousel data={cards} />
-      </div>
-    </div>
-  );
-};
-
-const SectionHoverExpand = (props: SectionProps) => {
-  const items = props.images ?? [];
-
-  return (
-    <div className="px-2 md:px-0" key={props.i}>
-      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
-        {props.title}
-      </h3>
-
-      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.shortDescription}
-      </p>
-      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {items.map((img, i) => (
-          <div
-            key={i}
-            className="group relative h-[180px] md:h-[220px] overflow-hidden rounded-xl cursor-pointer"
-          >
-            {/* imagen */}
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style={{ backgroundImage: `url("${assetUrl(img.url)}")` }}
-            />
-
-            {/* overlay */}
-            <div className="absolute inset-0 bg-black/40 transition-opacity duration-300 group-hover:bg-black/60" />
-
-            {/* contenido */}
-            <div className="absolute bottom-0 p-4 text-white transform transition-all duration-500 group-hover:-translate-y-2">
-              <h4 className="font-bold text-lg">{img.name}</h4>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const SectionMasonry = (props: SectionProps) => {
-  const items = props.images ?? [];
-
-  return (
-    <div className="px-2 md:px-0" key={props.i}>
-      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
-        {props.title}
-      </h3>
-
-      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.shortDescription}
-      </p>
-      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
-
-      <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
-        {items.map((img, i) => (
-          <div
-            key={i}
-            className="break-inside-avoid rounded-xl overflow-hidden"
-          >
-            <div
-              className="w-full h-[200px] md:h-[250px] bg-cover bg-center hover:scale-105 transition-transform duration-500"
-              style={{ backgroundImage: `url("${assetUrl(img.url)}")` }}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const SectionGrid = (props: SectionProps) => {
-  const items = props.images ?? [];
-
-  return (
-    <div className="px-0 sm:px-16" key={props.i}>
-      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
-        {props.title}
-      </h3>
-
-      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.shortDescription}
-      </p>
-      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {items.map((img, i) => (
-          <div
-            key={i}
-            className="rounded-xl overflow-hidden bg-purple hover:bg-yellow transition-colors duration-300"
-          >
-            <div
-              className="w-full h-[180px] md:h-[200px] bg-cover bg-center"
-              style={{ backgroundImage: `url("${assetUrl(img.url)}")` }}
-            />
-
-            <div className="p-4">
-              <h4 className="font-semibold text-base text-in-purple-bg hover:text-in-yellow-bg md:text-lg mb-2">
-                {img.name}
-              </h4>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const SectionTabs = (props: SectionProps) => {
-  const items = props.images ?? [];
-  const [active, setActive] = useState(0);
-
-  return (
-    <div className="px-2 md:px-0" key={props.i}>
-      <h3 className="text-xl md:text-2xl font-bold mb-4 pl-2 md:pl-4">
-        {props.title}
-      </h3>
-
-      <p className="text-sm md:text-base pl-2 md:pl-4 mb-6">
-        {props.shortDescription}
-      </p>
-      <VerMas href={props.href} className="ml-2 md:ml-4 mb-6" />
-
-      {/* tabs */}
-      <div className="flex overflow-x-auto gap-2 mb-6 px-2 md:px-4">
-        {items.map((item, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className={clsx(
-              "whitespace-nowrap px-4 py-2 rounded-full text-sm transition",
-              active === i
-                ? "bg-black text-white"
-                : "bg-zinc-200 text-zinc-700 hover:bg-zinc-300"
-            )}
-          >
-            {item.name}
-          </button>
-        ))}
-      </div>
-
-      {/* contenido */}
-      {items[active] && (
-        <div className="flex flex-col md:flex-row gap-4 items-center">
-          <div className="w-full md:w-1/2">
-            <div
-              className="w-full h-[220px] md:h-[300px] bg-contain bg-no-repeat bg-center"
-              style={{ backgroundImage: `url("${assetUrl(items[active].url)}")` }}
-            />
-          </div>
-
-          <div className="w-full md:w-1/2">
-            <h4 className="text-lg md:text-xl font-semibold mb-2">
-              {items[active].name}
-            </h4>
-            <p className="text-sm md:text-base text-zinc-600">
-              {/* puedes extender tu modelo para meter descripción aquí */}
-              Información del servicio seleccionado.
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
+import { assetUrl } from "types/assets";
+import { servicePath, services } from "types/services";
 
 export default function ServicesPage() {
   return (
-    <main className="max-w-6xl mx-auto py-8 md:py-12 px-0 space-y-16 md:space-y-32">
-      {services.map((service, i) => {
-        if ("subItems" in service && service.subItems?.length) {
-          return (
-            <section key={i} id={`service${i}`}>
-              <TitleBlock
-                title={service.title}
-                subtitle={service.shortDescription}
-                type="services"
-              />
-              {service.subItems.map((subservice, j) => {
-                const href = servicePath(service.id, subservice.id);
-                if (subservice.layoutType === "Right") {
-                  return <SectionRight key={subservice.id} {...subservice} i={j} href={href} />;
-                }
-                if (subservice.layoutType === "Left") {
-                  return <SectionLeft key={subservice.id} {...subservice} i={j} href={href} />;
-                }
-                if (subservice.layoutType === "Carousel") {
-                  return <SectionCarousel key={subservice.id} {...subservice} i={j} href={href} />;
-                }
-                if (subservice.layoutType === "HoverExpand") {
-                  return <SectionHoverExpand key={subservice.id} {...subservice} i={j} href={href} />;
-                }
-                if (subservice.layoutType === "Masonry") {
-                  return <SectionMasonry key={subservice.id} {...subservice} i={j} href={href} />;
-                }
-                if (subservice.layoutType === "Grid") {
-                  return <SectionGrid key={subservice.id} {...subservice} i={j} href={href} />;
-                }
-                if (subservice.layoutType === "Tabs") {
-                  return <SectionTabs key={subservice.id} {...subservice} i={j} href={href} />;
-                }
+    <main className="py-8 md:py-12 space-y-20">
+      {services.map((service) => {
+        const items = service.subItems?.length
+          ? service.subItems.map((subservice) => ({
+              id: subservice.id,
+              title: subservice.title,
+              description: subservice.shortDescription,
+              image: subservice.images?.[0],
+              href: servicePath(service.id, subservice.id),
+            }))
+          : [
+              {
+                id: service.id,
+                title: service.title,
+                description: service.shortDescription,
+                image: service.images?.[0],
+                href: servicePath(service.id),
+              },
+            ];
 
-               return null;
-              })}
-            </section>
-          );
-        }
-
-        const href = servicePath(service.id);
-        if (service.layoutType === "Right") {
-          return <SectionRight key={service.id} {...service} i={i} href={href} />;
-        }
-        if (service.layoutType === "Left") {
-          return <SectionLeft key={service.id} {...service} i={i} href={href} />;
-        }
-        if (service.layoutType === "Carousel") {
-          return <SectionCarousel key={service.id} {...service} i={i} href={href} />;
-        }
-        if (service.layoutType === "HoverExpand") {
-          return <SectionHoverExpand key={service.id} {...service} i={i} href={href} />;
-        }
-        if (service.layoutType === "Masonry") {
-          return <SectionMasonry key={service.id} {...service} i={i} href={href} />;
-        }
-        if (service.layoutType === "Grid") {
-          return <SectionGrid key={service.id} {...service} i={i} href={href} />;
-        }
-        if (service.layoutType === "Tabs") {
-          return <SectionTabs key={service.id} {...service} i={i} href={href} />;
-        }
-
-        return null;
+        return (
+          <section key={service.id} id={service.id} className="space-y-8">
+            <TitleBlock title={service.title} type="services" />
+            <ul
+              className={
+                items.length > 1 ? "grid gap-6 md:grid-cols-2" : "grid gap-6"
+              }
+            >
+              {items.map((item) => (
+                <li
+                  key={item.id}
+                  className="flex flex-col overflow-hidden border-4 border-purple bg-white"
+                >
+                  {item.image && (
+                    <div className="relative h-56 bg-yellow">
+                      <Image
+                        src={assetUrl(item.image.url)}
+                        alt={item.image.name}
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col gap-4 p-5">
+                    {item.title !== service.title && (
+                      <h3 className="text-xl md:text-2xl font-bold">
+                        {item.title}
+                      </h3>
+                    )}
+                    {item.description && (
+                      <p className="text-sm md:text-base leading-7 line-clamp-4">
+                        {item.description}
+                      </p>
+                    )}
+                    <Link
+                      href={item.href}
+                      className="mt-auto inline-block w-fit border border-current px-8 py-3 text-sm font-semibold hover:bg-black hover:text-white hover:border-black transition"
+                    >
+                      Ver más
+                    </Link>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
       })}
     </main>
   );
