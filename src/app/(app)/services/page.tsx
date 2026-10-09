@@ -40,13 +40,13 @@ export default function ServicesPage() {
                   className="flex flex-col overflow-hidden border-4 border-purple bg-white"
                 >
                   {item.image && (
-                    <div className="relative h-56 bg-yellow">
+                    <div className="relative h-56 bg-transparent">
                       <Image
                         src={assetUrl(item.image.url)}
                         alt={item.image.name}
                         fill
                         sizes="(min-width: 768px) 50vw, 100vw"
-                        className="object-cover"
+                        className="object-contain"
                       />
                     </div>
                   )}

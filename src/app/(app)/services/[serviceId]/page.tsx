@@ -70,14 +70,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
           {images.map((image, index) => (
             <figure
               key={`${image.url}-${index}`}
-              className="overflow-hidden border-8 border-purple bg-yellow"
+              className="overflow-hidden border-8 border-zinc-300 bg-transparent hover:border-purple transition-all duration-300 flex items-center justify-center"
             >
               <Image
                 src={assetUrl(image.url)}
                 alt={image.name}
                 width={640}
                 height={480}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain hover:scale-105 transition-all duration-300"
                 style={{ width: "100%", height: "auto" }}
               />
             </figure>
