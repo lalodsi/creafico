@@ -1,3 +1,4 @@
+import { Reveal } from "components/ui/Reveal";
 import { ServicesMarquee } from "components/ui/ServiceMarquee";
 import { TitleBlock } from "components/ui/TitleBlock";
 import Image from "next/image";
@@ -10,6 +11,7 @@ export default function Home() {
     <section className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
 
       {/* NOSOTROS */}
+      <Reveal>
       <section className="py-24">
         <div className="text-center">
           <TitleBlock
@@ -38,8 +40,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Reveal>
 
       {/* SERVICIOS */}
+      <Reveal>
       <section className="py-24">
         <div className="grid lg:grid-cols-[300px_1fr] gap-16">
 
@@ -74,8 +78,10 @@ export default function Home() {
           <ServicesMarquee />
         </div>
       </section>
+      </Reveal>
 
       {/* CLIENTES */}
+      <Reveal>
       <section className="py-24">
         <div className="grid lg:grid-cols-[300px_1fr] gap-16 items-center">
 
@@ -112,6 +118,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </Reveal>
     </section>
   );
 }

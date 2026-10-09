@@ -52,3 +52,78 @@
 .animate-marquee-down:hover {
   animation-duration: 30s;
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-muted {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes enter-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(2.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out both;
+}
+
+.animate-fade-in-muted {
+  animation: fade-in-muted 1s ease-out both;
+}
+
+.animate-fade-in.fade-delay,
+.animate-fade-in-muted.fade-delay {
+  animation-delay: 0.3s;
+}
+
+.animate-fade-in.fade-delay-2 {
+  animation-delay: 0.5s;
+}
+
+.animate-enter-right {
+  animation: enter-from-right 1s ease-out both;
+}
+
+.reveal-from-right-pending {
+  opacity: 0;
+  transform: translateX(2.5rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-muted,
+  .animate-enter-right {
+    animation: none;
+  }
+
+  .animate-fade-in-muted {
+    opacity: 0.8;
+  }
+
+  .reveal-from-right-pending {
+    opacity: 1;
+    transform: none;
+  }
+}
