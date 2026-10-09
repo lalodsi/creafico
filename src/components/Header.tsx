@@ -7,7 +7,7 @@ import { TitleBlock } from "./ui/TitleBlock";
 export function Header() {
   return (
     <header className="bg-white/80 backdrop-blur border-b border-zinc-200 w-full">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-10 flex flex-col lg:flex-row items-center justify-between gap-10 min-h-[600px]">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 py-10 flex flex-col flex-col-reverse lg:flex-row items-center justify-between gap-10 min-h-[600px]">
         <nav className="flex flex-col items-center lg:items-start text-center lg:text-left gap-6 w-full lg:w-1/2">
           <TitleBlock
             title="Dale un impulso a tu negocio"

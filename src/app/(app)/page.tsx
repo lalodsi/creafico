@@ -26,19 +26,10 @@ export default function Home() {
 
           <div className="space-y-6 text-zinc-700 leading-8">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Sed ut ligula auctor, finibus nunc at, viverra metus.
-              Nullam at lectus ex.
+              Creemos que las mejores soluciones nacen de escuchar, cuestionar lo establecido y encontrar formas más inteligentes de hacer las cosas. Por eso, trabajamos en cada proyecto con atención al detalle, comunicación clara y el compromiso de entregar algo de lo que tanto nosotros como nuestros clientes podamos sentirnos orgullosos.
             </p>
-
             <p>
-              Proin lobortis justo risus, id bibendum augue tempor id.
-              Donec eu nunc lacinia, pharetra enim vitae,
-              bibendum urna.
-            </p>
-
-            <p>
-              Duis in faucibus augue, non fermentum est.
+              Con más de 34 años de experiencia, hemos acompañado la evolución de nuestros clientes y sus necesidades, adaptándonos a los cambios y desarrollando soluciones que responden a los retos de cada proyecto.
             </p>
           </div>
         </div>
