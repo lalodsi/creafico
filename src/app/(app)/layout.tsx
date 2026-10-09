@@ -16,7 +16,7 @@ export default function AppLayout({
     <div className="min-h-screen text-zinc-900">
       <NavBar />
       {
-        path !== "/contact" &&
+        path !== "/contact" && path.endsWith("/services") &&
         <Header />
       }
       <main className="py-14">

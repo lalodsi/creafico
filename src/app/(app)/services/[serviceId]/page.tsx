@@ -41,7 +41,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const description = content.description?.trim();
 
   return (
-    <article className="py-8 md:py-12 space-y-8">
+    <article className="space-y-8">
       <Link
         href="/services"
         className="inline-block text-sm font-semibold underline underline-offset-4"
