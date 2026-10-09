@@ -2,6 +2,7 @@ import Image from "next/image";
 import { assetUrl } from "types/assets";
 import { Container } from "components/ui/Container";
 import { Section } from "components/ui/Section";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_FORMATTED } from "types/constants";
 
 export default function ContactPage() {
   return (
@@ -91,24 +92,24 @@ export default function ContactPage() {
 
             <div className="grid sm:grid-cols-3 gap-6 w-full">
               <ContactCard
-                href="tel:+525512345678"
+                href={`tel:${CONTACT_PHONE}`}
                 icon="📞"
                 title="Teléfono"
-                value="+52 55 1234 5678"
+                value={CONTACT_PHONE_FORMATTED}
               />
 
               <ContactCard
-                href="mailto:contacto@creafico.com"
+                href={`mailto:${CONTACT_EMAIL}`}
                 icon="✉️"
                 title="Correo Electrónico"
-                value="contacto@creafico.com"
+                value={CONTACT_EMAIL}
               />
 
               <ContactCard
-                href="https://wa.me/525512345678"
+                href={`https://wa.me/${CONTACT_PHONE}`}
                 icon="💬"
                 title="WhatsApp"
-                value="+52 55 1234 5678"
+                value={CONTACT_PHONE_FORMATTED}
               />
             </div>
           </div>

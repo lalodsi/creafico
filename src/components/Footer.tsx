@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { assetUrl } from "types/assets";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_FORMATTED } from "types/constants";
 
 export function Footer() {
   return (
@@ -39,21 +40,21 @@ export function Footer() {
             </p>
 
             <a
-              href="mailto:contacto@creafico.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="hover:underline hover:text-yellow"
             >
-              Correo Electrónico: contacto@creafico.com
+              Correo Electrónico: {CONTACT_EMAIL}
             </a>
 
             <a
-              href="tel:+525512345678"
+              href={`tel:${CONTACT_PHONE}`}
               className="hover:underline hover:text-yellow"
             >
-              Teléfono: +52 55 1234 5678
+              Teléfono: {CONTACT_PHONE_FORMATTED}
             </a>
 
             <a
-              href="https://wa.me/525512345678"
+              href={`https://wa.me/${CONTACT_PHONE}`}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline hover:text-yellow"
