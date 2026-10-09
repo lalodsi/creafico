@@ -17,8 +17,8 @@ export default function ServicesLayout({
       <header>
         <h1 className="text-5xl font-bold mb-4">Servicios</h1>
         {isServicePage && (
-          <p className="text-zinc-500 max-w-xl">
-            Tenemos un amplio catálogo de servicios
+          <p className="text-foreground max-w-full">
+            Contamos con soluciones para destacar tu marca en cada espacio, desde exhibidores y material publicitario hasta stands, escenografías e impresión en distintos formatos. Cuéntanos qué tienes en mente y te ayudaremos a encontrar la opción que mejor se adapte a tu proyecto, tus necesidades y tu presupuesto. <strong>Solicita una cotización y trabajemos juntos para hacerlo realidad.</strong>
           </p>
         )}
       </header>

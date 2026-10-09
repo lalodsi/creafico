@@ -1,4 +1,5 @@
 import { ServicesMarquee } from "components/ui/ServiceMarquee";
+import { TitleBlock } from "components/ui/TitleBlock";
 import Image from "next/image";
 import Link from "next/link";
 import { assetUrl } from "types/assets";
@@ -10,15 +11,18 @@ export default function Home() {
 
       {/* NOSOTROS */}
       <section className="py-24">
-        <h2 className="text-4xl md:text-5xl text-center mb-20">
-          Sección "Nosotros"
-        </h2>
+        <div className="text-center">
+          <TitleBlock
+            title="Sobre nosotros"
+            subtitle=""
+          />
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative w-full aspect-square max-w-md mx-auto">
+          <div className="relative w-full aspect-square max-w-md mx-auto hidden lg:block">
             <Image
               src={assetUrl("./Logo.png")}
-              alt="Nosotros"
+              alt="Sobre nosotros"
               fill
               className="object-contain"
             />
@@ -40,11 +44,15 @@ export default function Home() {
         <div className="grid lg:grid-cols-[300px_1fr] gap-16">
 
           <div className="flex flex-col justify-center">
-            <h2 className="text-5xl mb-8">
-              Nuestros
-              <br />
-              servicios
-            </h2>
+            <div className="text-center">
+              <TitleBlock
+                title="Nuestros servicios"
+                subtitle=""
+              />
+            </div>
+            <p className="max-w-full text-foreground leading-8 text-center mb-8">
+              Tenemos un amplio catálogo de servicios que se ajustan a tus necesidades, desde la fabricación de muebles de exhibición y material POP hasta el diseño de stands, escenografías y soluciones de impresión. Trabajamos con distintos materiales y formatos para dar vida a tus ideas, fortalecer la presencia de tu marca y responder a los requerimientos de cada proyecto.
+            </p>
 
             <Link
               href="/services"
